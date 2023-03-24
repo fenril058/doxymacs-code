@@ -96,7 +96,7 @@ inline void AddToHash(completion_list *cl)
 }
 
 /* mmmmm... free hash */
-inline void FreeHash(void)
+static inline void FreeHash(void)
 {
     unsigned int i;
     for (i = 0; i < HASH_SIZE; i++)
@@ -341,7 +341,7 @@ inline char *Encode(const char *s)
 
 /* Output the completion list in a way {X}Emacs can easily read in */
 
-inline int OutputCompletionList(void)
+extern inline int OutputCompletionList(void)
 {
     completion_list *cur = comp_list;
 
@@ -400,7 +400,7 @@ inline int OutputCompletionList(void)
 
 /* Clean up */
 
-inline void FreeCompletionList(void)
+static inline void FreeCompletionList(void)
 {
     completion_list *cur = comp_list;
 
@@ -429,7 +429,7 @@ inline void FreeCompletionList(void)
 
 /* Add the members of a compound to the completion list */
 
-inline int AddCompoundMembers(xmlNodePtr compound,
+static inline int AddCompoundMembers(xmlNodePtr compound,
                               const char *name, const char *url)
 {
     xmlNodePtr child = compound->xmlChildrenNode;
